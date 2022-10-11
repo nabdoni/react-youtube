@@ -188,7 +188,7 @@ class YouTube extends React.Component {
                             const opts = {
                                 listType: "playlist",
                                 list: value,
-                                index: Math.floor(Math.random() * 10) //random number between 0 and 9, this is all very not well good so it NEEDS to be rewritten to be added as a parameter
+                                index: 0 //this is all very not well good so it NEEDS to be rewritten to be added as a parameter
                             };
                             player.loadPlaylist(opts); //autoplay needs to be added
                         }
