@@ -121,6 +121,7 @@ class YouTube extends React.Component {
             list: this.props.playlist,
             width: this.props.width,
             height: this.props.height,
+            host: 'http://www.youtube-nocookie.com',
             playerVars: this.getPlayerParameters(),
             events: {
                 onReady: this.onPlayerReady,
@@ -186,10 +187,11 @@ class YouTube extends React.Component {
                         if (!value) {
                             player.stopVideo();
                         } else {
-                            const { autoplay } = this.props;
+                            const { startSeconds, endSeconds, autoplay } = this.props;
                             const opts = {
                                 listType: "playlist",
-                                list: value
+                                list: value,
+                                index: 0 //this is all very not well good so it NEEDS to be rewritten to be added as a parameter
                             };
                             if (autoplay) {
                                 player.loadPlaylist(opts);
