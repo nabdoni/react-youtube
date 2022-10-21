@@ -119,6 +119,7 @@ class YouTube extends React.Component {
             videoId: this.props.video,
             listType: this.props.listType,
             list: this.props.playlist,
+            index: this.props.indexPlaylist,
             width: this.props.width,
             height: this.props.height,
             host: 'http://www.youtube-nocookie.com',
@@ -183,13 +184,11 @@ class YouTube extends React.Component {
                             }
                         }
                     case 'list':
-
-                        const { startSeconds, autoplay } = this.props;
+                        const {  indexPlaylist, autoplay } = this.props;
                         const opts = {
                             listType: "playlist",
                             list: value,
-                            startSeconds: startSeconds || 0,
-                            index: Math.floor(Math.random() * 100)
+                            index: indexPlaylist
                         };
                         if (autoplay) {
                             player.loadPlaylist(opts);
@@ -273,6 +272,11 @@ if (process.env.NODE_ENV !== 'production') {
          * DOM ID for the player element.
          */
         id: PropTypes.string,
+
+        /**
+         * Index for playlist
+         */
+        indexPlaylist: PropTypes.number,
         /**
          * CSS className for the player element.
          */
