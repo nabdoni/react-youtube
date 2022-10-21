@@ -181,15 +181,15 @@ class YouTube extends React.Component {
                                 player.cueVideoById(opts);
                             }
                         }
+                        break;
                     case 'list':
                         if (!value) {
                             player.stopVideo();
                         } else {
-                            const { startSeconds, endSeconds, autoplay } = this.props;
+                            const { autoplay } = this.props;
                             const opts = {
                                 listType: "playlist",
-                                list: value,
-                                index: 0 //this is all very not well good so it NEEDS to be rewritten to be added as a parameter
+                                list: value
                             };
                             if (autoplay) {
                                 player.loadPlaylist(opts);
